@@ -1701,32 +1701,32 @@ public class IQKeyboardManager: NSObject, UIGestureRecognizerDelegate {
                     //Setting toolbar title font.   //  (Enhancement ID: #30)
                     if shouldShowTextFieldPlaceholder == true && textField.shouldHideTitle == false {
                         
-                        let toolbar = textField.inputAccessoryView as! IQToolbar
+                        let toolbar = textField.inputAccessoryView as? IQToolbar
 
                         //Updating placeholder font to toolbar.     //(Bug ID: #148)
                         if let _textField = textField as? UITextField {
                             
-                            if toolbar.title == nil || toolbar.title != _textField.placeholder {
-                                toolbar.title = _textField.placeholder
+                            if toolbar?.title == nil || toolbar?.title != _textField.placeholder {
+                                toolbar?.title = _textField.placeholder
                             }
 
                         } else if let _textView = textField as? IQTextView {
                             
-                            if toolbar.title == nil || toolbar.title != _textView.placeholder {
-                                toolbar.title = _textView.placeholder
+                            if toolbar?.title == nil || toolbar?.title != _textView.placeholder {
+                                toolbar?.title = _textView.placeholder
                             }
                         } else {
-                            toolbar.title = nil
+                            toolbar?.title = nil
                         }
 
                         //Setting toolbar title font.   //  (Enhancement ID: #30)
                         if placeholderFont != nil {
-                            toolbar.titleFont = placeholderFont
+                            toolbar?.titleFont = placeholderFont
                         }
                     } else {
                         
-                        let toolbar = textField.inputAccessoryView as! IQToolbar
-                        toolbar.title = nil
+                        let toolbar = textField.inputAccessoryView as? IQToolbar
+                        toolbar?.title = nil
                     }
                 }
             } else if siblings.count != 0 {
